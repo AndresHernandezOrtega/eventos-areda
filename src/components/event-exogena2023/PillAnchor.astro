@@ -1,0 +1,26 @@
+---
+const { link } = Astro.props;
+---
+
+{
+  !link ? (
+    <button
+      class={`h-fit flex gap-2 items-center font-bold border rounded-full w-fit p-0.5
+      border-1 text-white px-3 text-xs border-white/50 transition-all
+      hover:border-white hover:bg-white/10 lg:text-lg lg:p-1 lg:px-4 ${Astro.props.class}`}
+      {...Astro.props}
+    >
+      <slot />
+    </button>
+  ) : (
+    <a
+      class={`h-fit flex gap-2 items-center font-bold border rounded-full w-fit p-0.5
+      border-1 text-white px-3 text-xs border-white/50 transition-all
+      hover:border-white hover:bg-white/10 lg:text-lg lg:p-1 lg:px-4 ${Astro.props.class}`}
+      href={link}
+      target="_blank"
+    >
+      <slot />
+    </a>
+  )
+}

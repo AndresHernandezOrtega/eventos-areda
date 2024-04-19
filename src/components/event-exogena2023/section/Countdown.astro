@@ -1,0 +1,135 @@
+---
+const DATE_TIMESTAMP = "1713967200000";
+---
+
+<section class="order-1 md:order-2">
+  <div
+    class="mx-auto lg:ml-auto lg:mx-0 w-fit flex flex-wrap flex-col my-5"
+    data-countdown={DATE_TIMESTAMP}
+  >
+    <h5 class="text-lg text-center mb-5 w-full">Nos Vemos En...</h5>
+
+    <div
+      class="flex flex-col items-center justify-center gap-1 font-bold bg-gray-500/10 p-3 px-4 rounded-lg min-w-24 md:min-w-32"
+    >
+      <span class="text-5xl md:text-8xl" data-days>00</span>
+      <span class="text-2xl md:text-4xl font-bold">Días</span>
+    </div>
+    <div class="mt-4 flex items-center gap-4 md:gap-8">
+      <div
+        class="flex flex-col items-center justify-center bg-gray-500/10 p-3 px-4 rounded-lg min-w-24 md:min-w-32"
+      >
+        <span class="text-2xl font-bold md:text-5xl leading-5" data-hours
+          >00</span
+        >
+        <span class="text-lg md:text-xl">Horas</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-gray-500/10 p-3 px-4 rounded-lg min-w-24 md:min-w-32"
+      >
+        <span class="text-2xl font-bold md:text-5xl leading-5" data-minutes
+          >00</span
+        >
+        <span class="text-lg md:text-xl">Minutos</span>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-gray-500/10 p-3 px-4 rounded-lg min-w-24 md:min-w-32"
+      >
+        <span class="text-2xl font-bold md:text-5xl leading-5" data-seconds
+          >00</span
+        >
+        <span class="text-lg md:text-xl">Segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <button
+    id="add-to-calendar-mobile"
+    class="md:hidden bg-transparent font-bold mb-4 animate-jump animate-duration-1000 focus:animate-stop border-areda-secondary border-4 px-4 w-full
+  focus:bg-areda-primary/20"
+    >Agregar Recordatorio Calendario</button
+  >
+</section>
+
+<script>
+  const SECOND = 1000;
+  const MINUTE = SECOND * 60;
+  const HOUR = MINUTE * 60;
+  const DAY = HOUR * 24;
+
+  const iniciarCountDown = () => {
+    const $countdown = document.querySelector("[data-countdown]");
+    if (!$countdown) return;
+
+    const $dias = document.querySelector("[data-days]");
+    const $horas = document.querySelector("[data-hours]");
+    const $minutos = document.querySelector("[data-minutes]");
+    const $segundos = document.querySelector("[data-seconds]");
+
+    const timestamp = $countdown.getAttribute("data-countdown");
+    if (!timestamp) return;
+    console.log(timestamp);
+
+    const date = new Date(+timestamp).getTime();
+
+    const formatTime = (time: number) =>
+      Math.floor(time).toString().padStart(2, "0");
+
+    const updateView = () => {
+      const now = Date.now();
+      const date_diff = date - now;
+
+      if ($dias instanceof HTMLElement)
+        $dias.innerText = formatTime(date_diff / DAY);
+      if ($horas instanceof HTMLElement)
+        $horas.innerText = formatTime((date_diff % DAY) / HOUR);
+      if ($minutos instanceof HTMLElement)
+        $minutos.innerText = formatTime((date_diff % HOUR) / MINUTE);
+      if ($segundos instanceof HTMLElement)
+        $segundos.innerText = formatTime((date_diff % MINUTE) / SECOND);
+    };
+
+    setInterval(updateView, 1000);
+  };
+
+  iniciarCountDown();
+</script>
+
+<script>
+  import { atcb_action } from "add-to-calendar-button";
+
+  const config: Object = {
+    name: "Aspectos Claves Información Exógena Año Gravable 2023",
+    description: `Unete a nuestro live y aprende junto a nuestros expertos todo lo que necesitas saber antes de presentar la información exógena de tu empresa.
+  
+  Conoce los principales aspectos que se deben tener en cuenta para que la información exógena para el año 2023 se presente de forma correcta y sin errores
+  
+  Organiza 
+  Lázaro Software SAS
+  Areda Consultores Integrales SAS
+  Genera Software SAS
+        
+  No te lo pierdas | Miercoles, 24 de abril; 2:00 PM | `,
+    startDate: "2024-04-19",
+    startTime: "14:00",
+    location: "https://www.youtube.com/@AredaConsultores",
+    endTime: "15:00",
+    optionsMobile: [
+      "Apple",
+      "Google",
+      "iCal",
+      "Outlook.com",
+      "Yahoo",
+      "Microsoft365",
+      "MicrosoftTeams",
+    ],
+    lightMode: "dark",
+    organizer: "Areda Consultores Integrales|contacto@aredasas.com",
+    timeZone: "America/Bogota",
+  };
+
+  const button = document.getElementById("add-to-calendar-mobile");
+  if (button) {
+    button.addEventListener("click", () => atcb_action(config, button));
+  }
+</script>

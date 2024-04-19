@@ -1,0 +1,21 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Cabecera from "@components/event-exogena2023/section/Cabecera.astro";
+import Sponsors from "@components/event-exogena2023/section/Sponsors.astro";
+import SobreEvento from "@components/event-exogena2023/section/SobreEvento.astro";
+import Countdown from "@components/event-exogena2023/section/Countdown.astro";
+import Form from "@components/event-exogena2023/Form.astro";
+---
+
+<Layout
+  title="Eventos - ASPECTOS CLAVES EN LA PRESENTACIÓN DE INFORMACIÓN EXÓGENA DIAN AÑO GRAVABLE 2023 "
+>
+  <Cabecera />
+  <SobreEvento />
+  <div class="mx-5 border-t border-areda-secondary/10 md:mx-5"></div>
+  <div class="mx-5 grid grid-cols-1 lg:grid-cols-2 lg:w-4/5 gap-6 md:mx-auto">
+    <Countdown />
+    <Form />
+  </div>
+  <Sponsors />
+</Layout>

@@ -1,0 +1,100 @@
+---
+import Youtube from "@public/icons/Youtube.astro";
+import Calendar from "@public/icons/Calendar.astro";
+import HandFinger from "@public/icons/HandFinger.astro";
+
+import PillAnchor from "@components/event-exogena2023/PillAnchor.astro";
+---
+
+<header class="relative">
+  <img
+    class="w-full"
+    src="/[event]Exogena2023/assets/conference.jpg"
+    alt="conference-image"
+  />
+  <div
+    class="grid content-center text-balance absolute top-0 h-full w-full p-3
+    bg-gradient-to-br from-areda-primary/60 via-areda-secondary/30 via-20% to-areda-secondary/90 to-90%"
+  >
+    <div
+      class="mx-auto w-4/5
+      md:w-4/5
+      lg:w-2/3
+      flex flex-col justify-center gap-4"
+    >
+      <h1
+        class="animate-fade-down
+        font-bold text-white text-2xl text-center leading-5
+        md:text-4xl md:text-left
+        lg:text-6xl
+        xl:text-8xl"
+      >
+        Aspectos Claves En La Presentación De Información Exógena DIAN
+        <blockquote
+          class="text-sm lg:text-2xl md:text-xl md:font-bold font-bold mt-3 pl-1 text-areda-primary"
+        >
+          Año Gravable 2023
+        </blockquote>
+      </h1>
+
+      <div class="hidden gap-2 lg:mt-10 md:flex flex-wrap mt-4">
+        <div class="flex flex-col items-center">
+          <PillAnchor id="add-to-calendar">
+            <Calendar class="w-3 md:w-5 lg:w-6" />
+            Miercoles, 24 de Abril del 2024
+          </PillAnchor>
+          <label
+            for="add-to-calendar"
+            class="flex gap-2 leading-1 hover:cursor-pointer font-semibold underline text-areda-primary lg:text-base text-xs"
+          >
+            Agregar evento al calendario
+          </label>
+        </div>
+
+        <PillAnchor link="https://www.youtube.com/@AredaConsultores">
+          <Youtube class="w-3 md:w-5 lg:w-6" />
+          Ver Evento En YouTube
+        </PillAnchor>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  import { atcb_action } from "add-to-calendar-button";
+
+  const config: Object = {
+    name: "Aspectos Claves Información Exógena Año Gravable 2023",
+    description: `Unete a nuestro live y aprende junto a nuestros expertos todo lo que necesitas saber antes de presentar la información exógena de tu empresa.
+
+Conoce los principales aspectos que se deben tener en cuenta para que la información exógena para el año 2023 se presente de forma correcta y sin errores
+
+Organiza 
+Lázaro Software SAS
+Areda Consultores Integrales SAS
+Genera Software SAS
+      
+No te lo pierdas | Miercoles, 24 de abril; 2:00 PM | `,
+    startDate: "2024-04-19",
+    startTime: "14:00",
+    location: "https://www.youtube.com/@AredaConsultores",
+    endTime: "15:00",
+    options: [
+      "Apple",
+      "Google",
+      "iCal",
+      "Outlook.com",
+      "Yahoo",
+      "Microsoft365",
+      "MicrosoftTeams",
+    ],
+    lightMode: "dark",
+    organizer: "Areda Consultores Integrales|contacto@aredasas.com",
+    timeZone: "America/Bogota",
+  };
+
+  const button = document.getElementById("add-to-calendar");
+  if (button) {
+    button.addEventListener("click", () => atcb_action(config, button));
+  }
+</script>

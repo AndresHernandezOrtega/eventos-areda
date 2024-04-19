@@ -1,0 +1,125 @@
+---
+import Clock from "@public/icons/Clock.astro";
+import LiteYouTube from "../LiteYouTube.astro";
+---
+
+<section>
+  <div class="mx-auto py-6 md:w-[90%] lg:w-[80%]" id="contenido-principal">
+    <div class="[grid-area:invitacion] flex flex-col gap-2 p-2">
+      <!-- FECHA MOVIL  -->
+      <div class="mx-2 md:mx-0 flex gap-2 items-center">
+        <div class="w-1/2">
+          <h4 class="font-bold text-xl leading-4 text-center">
+            MIERCOLES 24 DE ABRIL
+          </h4>
+          <p class="flex text-center justify-center items-center gap-2">
+            <Clock class="w-5 h-5" />2:00 PM
+          </p>
+        </div>
+        <div class="h-full border-r border-areda-secondary"></div>
+        <p class="w-1/2 leading-4 text-center text-sm text-pretty">
+          ¡Únete a nosotros y prepárate para un evento lleno de aprendizaje y
+          desarrollo profesional!
+        </p>
+      </div>
+
+      <div
+        class="grid gap-2 mt-10 grid-cols-1 md:grid-cols-2 xl:w-2/3 md:mx-auto"
+      >
+        <h5
+          class="border-areda-secondary/70 flex items-center border-2 leading-4 py-5 px-16 md:px-5 font-extralight text-center rounded-lg c"
+        >
+          Aprende paso por paso como conciliar la información exogena y
+          minimizar el margen de error en la presentación
+        </h5>
+        <h5
+          class="border-areda-secondary/70 flex items-center border-2 leading-4 py-5 px-16 md:px-5 font-extralight text-center rounded-lg c"
+        >
+          Identifica aspectos importantes a la hora de diligenciar cada formato
+        </h5>
+        <h5
+          class="border-areda-secondary/70 flex items-center border-2 leading-4 py-5 px-16 md:px-5 font-extralight text-center rounded-lg c"
+        >
+          Comprende el proposito de cada formato y la información con la que se
+          debe cruzar
+        </h5>
+        <h5
+          class="border-areda-secondary/70 flex items-center border-2 leading-4 py-5 px-16 md:px-5 font-extralight text-center rounded-lg c"
+        >
+          Comparte tus dudas con nuestro invitado experto en tributación
+        </h5>
+      </div>
+      <h6 class="md:hidden underline text-center">
+        Todo lo que tienes que saber antes del evento
+      </h6>
+    </div>
+    <div class="[grid-area:cita] md:w-full mx-2 md:mx-0 md:border-none pt-5">
+      <blockquote>
+        <p
+          class="text-center mx-4 md:mx-0 text-md italic font-medium text-gray-800 dark:text-white"
+        >
+          “…No se trata de llenar formatos por llenarlos, hay que tener claro
+          cuál es el propósito de la información en el formato, cual es el
+          origen o la fuente de la información y lo que se debe o no se debe
+          reportar, antes de iniciar ya debo saber a dónde debo llegar…”
+        </p>
+      </blockquote>
+
+      <figcaption
+        class="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse"
+      >
+        <img
+          class="w-6 h-6 rounded-full"
+          src="/[event]Exogena2023/assets/arlex-pineda-4x4.jpeg"
+          alt="profile picture"
+        />
+        <div
+          class="flex items-center divide-x-2 rtl:divide-x-reverse divide-areda-secondary dark:divide-gray-700"
+        >
+          <cite class="pe-3 font-medium text-gray-900 dark:text-white"
+            >Arlex Pineda Ocampo</cite
+          >
+          <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400"
+            >CEO & Founder Areda SAS</cite
+          >
+        </div>
+      </figcaption>
+    </div>
+
+    <div class="[grid-area:video] grid content-center h-full">
+      <div
+        class="mb-5 md:mb-0 m-2 hover:scale-[1.02] transition-all h-fit rounded-xl overflow-hidden border-areda-secondar shadow-md md:shadow-none shadow-areda-primary"
+      >
+        <LiteYouTube
+          class="border-4 overflow-hidden rounded-md"
+          videoId="Ai_uUYOxIxk"
+          title="Introducción"
+          backgroundImage="/[event]Exogena2023/assets/miniatura-video.jpg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+  #contenido-principal {
+    display: grid;
+    gap: 5px;
+    grid-template-areas:
+      "invitacion"
+      "video"
+      "cita";
+  }
+
+  @media only screen and (min-width: 768px) {
+    #contenido-principal {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      grid-template-areas:
+        "invitacion video"
+        "cita video";
+    }
+  }
+</style>
