@@ -1,8 +1,9 @@
 <section
+  id="sponsors"
   class="px-24 pb-10 py-5 md:px-5 md:pb-16 flex flex-col flex-wrap md:flex-row gap-y-10 md:gap-x-20 md:gap-y-10 items-center justify-center bg-gray-500/20"
 >
   <h2
-    class="text-xl md:text-3xl text-areda-secondary font-medium text-center w-full"
+    class="text-md font-bold md:font-light md:text-xl text-areda-secondary text-center w-full"
   >
     ORGANIZAN
   </h2>
@@ -32,3 +33,35 @@
     />
   </a>
 </section>
+<section id="genera" class="p-2">
+  <div class="md:w-2/3 md:mx-auto grid content-center gap-2 mt-10 px-24">
+    <a href="https://www.genera.pro/" target="_blank">
+      <img
+        class="drop-shadow-xl animate-fade"
+        loading="lazy"
+        src="/[event]Exogena2023/assets/genera-logo.svg"
+        alt="genera"
+      />
+    </a>
+    <h5 class="text-center text-xl text-white md:text-3xl font-bold">
+      Genera tu nómina. Optimiza tu vida
+    </h5>
+  </div>
+</section>
+
+<style>
+  #sponsors {
+    padding-bottom: 30px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 20px));
+  }
+  #genera {
+    clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 100%);
+    margin-top: -10px;
+    background: linear-gradient(
+      53deg,
+      rgba(46, 183, 85, 1) 0%,
+      rgba(20, 190, 115, 1) 45%,
+      rgba(74, 218, 157, 1) 100%
+    );
+  }
+</style>
