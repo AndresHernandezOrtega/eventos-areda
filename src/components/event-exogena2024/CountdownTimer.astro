@@ -1,0 +1,62 @@
+---
+---
+
+<section class="py-20 bg-gray-100 text-center">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-12">Nos Vemos En...</h2>
+    
+    <div class="flex flex-wrap justify-center gap-8" id="countdown">
+      <div class="bg-white rounded-lg p-8 shadow-md min-w-[150px] border-b-4 border-primary">
+        <div class="text-5xl font-bold text-primary leading-none mb-2" id="days">--</div>
+        <div class="text-xl text-light-text font-medium">Días</div>
+      </div>
+      
+      <div class="bg-white rounded-lg p-8 shadow-md min-w-[150px] border-b-4 border-primary">
+        <div class="text-5xl font-bold text-primary leading-none mb-2" id="hours">--</div>
+        <div class="text-xl text-light-text font-medium">Horas</div>
+      </div>
+      
+      <div class="bg-white rounded-lg p-8 shadow-md min-w-[150px] border-b-4 border-primary">
+        <div class="text-5xl font-bold text-primary leading-none mb-2" id="minutes">--</div>
+        <div class="text-xl text-light-text font-medium">Minutos</div>
+      </div>
+      
+      <div class="bg-white rounded-lg p-8 shadow-md min-w-[150px] border-b-4 border-primary">
+        <div class="text-5xl font-bold text-primary leading-none mb-2" id="seconds">--</div>
+        <div class="text-xl text-light-text font-medium">Segundos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Set the date we're counting down to (April 25, 2024 at 2:00 PM)
+  const countDownDate = new Date("Apr 25, 2024 14:00:00").getTime();
+
+  // Update the countdown every 1 second
+  const countdownTimer = setInterval(function() {
+    // Get today's date and time
+    const now = new Date().getTime();
+    
+    // Find the distance between now and the countdown date
+    const distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Display the result
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+    
+    // If the countdown is finished, display a message
+    if (distance &lt; 0) {
+      clearInterval(countdownTimer);
+      document.getElementById("countdown").innerHTML = "<div class='text-3xl font-bold text-accent animate-pulse'>¡El evento está en vivo ahora!</div>";
+    }
+  }, 1000);
+</script>

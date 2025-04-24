@@ -1,0 +1,27 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/event-exogena2024/Header.astro"
+import Hero from "@components/event-exogena2024/Hero.astro"
+import EventDetails from "@components/event-exogena2024/EventDetails.astro"
+import VideoSection from "@components/event-exogena2024/VideoSection.astro"
+import CountdownTimer from "@components/event-exogena2024/CountdownTimer.astro"
+import RegistrationForm from "@components/event-exogena2024/RegistrationForm.astro"
+import Sponsors from "@components/event-exogena2024/Sponsors.astro"
+import Footer from "@components/event-exogena2024/Footer.astro"
+
+// Metadata for the page
+const title = "Aspectos Claves En La Presentación De Información Exógena DIAN"
+const description =
+  "Evento virtual sobre los aspectos claves para el reporte de la información exógena DIAN. Año Gravable 2023."
+---
+
+<Layout title={title}>
+  <Header />
+  <Hero />
+  <EventDetails />
+  <VideoSection />
+  <!-- <CountdownTimer /> -->
+  <RegistrationForm />
+  <Sponsors />
+  <Footer />
+</Layout>

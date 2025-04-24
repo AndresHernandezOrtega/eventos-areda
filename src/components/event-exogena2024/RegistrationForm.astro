@@ -1,0 +1,86 @@
+---
+---
+
+<section class="py-20 bg-white" id="registro">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+      <div class="p-8 text-center border-b border-gray-200">
+        <h2 class="text-3xl font-bold mb-4">Recibe tu invitación personal</h2>
+        <p class="text-light-text">Entérate de nuestros próximos eventos y recibe alertas anticipadas para seguir mejorando en tu carrera!</p>
+      </div>
+      
+      <form class="p-8" id="registration-form">
+        <div class="mb-6">
+          <label for="email" class="block mb-2 font-medium text-primary">Correo Electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            placeholder="tu@email.com"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+          >
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="firstName" class="block mb-2 font-medium text-primary">Nombres</label>
+            <input 
+              type="text" 
+              id="firstName" 
+              name="firstName" 
+              required 
+              placeholder="Tus nombres"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+            >
+          </div>
+          
+          <div>
+            <label for="lastName" class="block mb-2 font-medium text-primary">Apellidos</label>
+            <input 
+              type="text" 
+              id="lastName" 
+              name="lastName" 
+              required 
+              placeholder="Tus apellidos"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+            >
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="phone" class="block mb-2 font-medium text-primary">Teléfono</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required 
+              placeholder="(123) 456-7890"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+            >
+          </div>
+          
+          <div>
+            <label for="company" class="block mb-2 font-medium text-primary">Compañía / Institución Educativa</label>
+            <input 
+              type="text" 
+              id="company" 
+              name="company" 
+              required 
+              placeholder="Nombre de tu empresa"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+            >
+          </div>
+        </div>
+        
+        <button 
+          type="submit" 
+          class="w-full py-4 px-6 bg-accent text-primary font-semibold rounded-md hover:bg-accent/90 transition-colors transform hover:-translate-y-1 mt-4 text-lg"
+        >
+          Registrarme - Recibir mi invitación
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
