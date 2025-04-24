@@ -107,9 +107,9 @@ const { videoId, title, backgroundImage } = Astro.props;
       // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
       this.needsYTApi =
         this.hasAttribute("js-api") ||
-        navigator.vendor.includes("Apple") ||
+        /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1) ||
         navigator.userAgent.includes("Mobi");
-    }
+    } // close connectedCallback method
 
     /**
      * Add a <link rel={preload | preconnect} ...> to the head

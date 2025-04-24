@@ -3,13 +3,13 @@
 
 <section class="py-20 bg-white" id="registro">
   <div class="container mx-auto px-4">
-    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl border overflow-hidden">
       <div class="p-8 text-center border-b border-gray-200">
         <h2 class="text-3xl font-bold mb-4">Recibe tu invitación personal</h2>
         <p class="text-light-text">Entérate de nuestros próximos eventos y recibe alertas anticipadas para seguir mejorando en tu carrera!</p>
       </div>
       
-      <form class="p-8" id="registration-form">
+      <form class="p-8" id="form-registro">
         <div class="mb-6">
           <label for="email" class="block mb-2 font-medium text-primary">Correo Electrónico</label>
           <input 
@@ -76,7 +76,7 @@
         
         <button 
           type="submit" 
-          class="w-full py-4 px-6 bg-accent text-primary font-semibold rounded-md hover:bg-accent/90 transition-colors transform hover:-translate-y-1 mt-4 text-lg"
+          class="w-full outline outline-lazaro outline-1 py-4 px-6 bg-accent text-primary font-semibold rounded-md hover:bg-slate-200/90 transition-colors transform hover:-translate-y-1 mt-4 text-lg"
         >
           Registrarme - Recibir mi invitación
         </button>
@@ -84,3 +84,42 @@
     </div>
   </div>
 </section>
+
+<script>
+  const $form = document.getElementById("form-registro") as HTMLFormElement;
+  const URL_POST =
+    "https://api.softwaregenera.com/third-parties/areda/registrar_interesado";
+  $form?.addEventListener("submit", async (ev: any) => {
+    ev.preventDefault();
+
+    const data_envio = {
+      nombres: ev.target.firstName.value,
+      apellidos: ev.target.lastName.value,
+      email: ev.target.email.value,
+      telefono: ev.target.phone.value,
+      empresa_institucion: ev.target.company.value,
+    };
+
+    const query = await fetch(URL_POST, {
+      method: "POST",
+      body: JSON.stringify(data_envio),
+    });
+
+    const response = await query.json();
+    if (response.status) {
+      const toast = `
+        <div id="toast-default" class="flex mb-5 items-center w-full  p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-areda-primary/40 rounded-lg dark:bg-blue-800 dark:text-blue-200">
+                <svg class="w-4 h-4 text-areda-secondary" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.147 15.085a7.159 7.159 0 0 1-6.189 3.307A6.713 6.713 0 0 1 3.1 15.444c-2.679-4.513.287-8.737.888-9.548A4.373 4.373 0 0 0 5 1.608c1.287.953 6.445 3.218 5.537 10.5 1.5-1.122 2.706-3.01 2.853-6.14 1.433 1.049 3.993 5.395 1.757 9.117Z"/>
+                </svg>
+                <span class="sr-only">Fire icon</span>
+            </div>
+            <div class="ms-3 leading-4 text-sm font-normal">${response.data.nombres} gracias por registrarte, pronto recibirás tu invitación</div>
+        </div>
+      `;
+      $form.insertAdjacentHTML("afterbegin", toast);
+      $form.reset();
+    }
+  });
+</script>

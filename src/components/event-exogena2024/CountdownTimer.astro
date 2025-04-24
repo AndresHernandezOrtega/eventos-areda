@@ -31,7 +31,7 @@
 
 <script>
   // Set the date we're counting down to (April 25, 2024 at 2:00 PM)
-  const countDownDate = new Date("Apr 25, 2024 14:00:00").getTime();
+  const countDownDate = new Date("Apr 29, 2025 14:00:00").getTime();
 
   // Update the countdown every 1 second
   const countdownTimer = setInterval(function() {
@@ -48,15 +48,25 @@
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
     // Display the result
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    const daysElement = document.getElementById("days");
+    if (daysElement) daysElement.textContent = days.toString();
+    
+    const hoursElement = document.getElementById("hours");
+    if (hoursElement) hoursElement.textContent = hours.toString();
+    
+    const minutesElement = document.getElementById("minutes");
+    if (minutesElement) minutesElement.textContent = minutes.toString();
+    
+    const secondsElement = document.getElementById("seconds");
+    if (secondsElement) secondsElement.textContent = seconds.toString();
     
     // If the countdown is finished, display a message
-    if (distance &lt; 0) {
+    if (distance == 0) {
       clearInterval(countdownTimer);
-      document.getElementById("countdown").innerHTML = "<div class='text-3xl font-bold text-accent animate-pulse'>¡El evento está en vivo ahora!</div>";
+      const countdownElement = document.getElementById("countdown");
+      if (countdownElement) {
+        countdownElement.innerHTML = "<div class='text-3xl font-bold text-accent animate-pulse'>¡El evento está en vivo ahora!</div>";
+      }
     }
   }, 1000);
 </script>
