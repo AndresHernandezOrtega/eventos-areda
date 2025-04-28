@@ -7,8 +7,8 @@
   <div class='absolute inset-0 bg-gradient-to-b from-primary/85 to-primary/95'></div>
   <div class='container mx-auto px-4 relative z-10'>
     <div class='max-w-3xl mx-auto text-center'>
-      <h1 class='text-4xl md:text-5xl font-bold mb-4 text-white leading-tight'>PRESENTACIÓN INFORMACIÓN EXÓGENA</h1>
-      <p class='text-xl md:text-2xl font-bold mb-8 text-lazaro lg:text-white'>AÑO GRAVABLE 2024</p>
+      <h1 class='text-4xl md:text-5xl font-bold mb-4 text-white text-shadow-header leading-tight'>PRESENTACIÓN INFORMACIÓN EXÓGENA</h1>
+      <p class='text-xl md:text-2xl font-bold mb-8 text-white text-shadow-header'>AÑO GRAVABLE 2024</p>
 
       <div class='flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-8'>
         <div class='flex items-center justify-center gap-2'>
@@ -22,11 +22,11 @@
             stroke-width='2'
             stroke-linecap='round'
             stroke-linejoin='round'
-            class='text-lazaro lg:text-white'
+            class='text-white text-shadow-header'
             ><rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect><line x1='16' y1='2' x2='16' y2='6'></line><line x1='8' y1='2' x2='8' y2='6'></line><line x1='3' y1='10' x2='21' y2='10'
             ></line></svg
           >
-          <span class='text-lazaro lg:text-white font-bold'>Martes, 29 de Abril del 2025</span>
+          <span class='text-white text-shadow-header font-bold drop-shadow-2xl drop-shadow-white'>Martes, 29 de Abril del 2025</span>
         </div>
         <div class='flex items-center justify-center gap-2'>
           <svg
@@ -39,9 +39,9 @@
             stroke-width='2'
             stroke-linecap='round'
             stroke-linejoin='round'
-            class='text-lazaro lg:text-white'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline></svg
+            class='text-white text-shadow-header'><circle cx='12' cy='12' r='10'></circle><polyline points='12 6 12 12 16 14'></polyline></svg
           >
-          <span class='text-lazaro lg:text-white font-bold'>2:00 PM</span>
+          <span class='text-white text-shadow-header drop-shadow-2xl font-bold'>2:00 PM</span>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         <a
           href='https://www.youtube.com/@AredaConsultores'
           target='_blank'
-          class='bg-accent text-lazaro lg:text-white font-semibold py-3 px-6 rounded flex items-center justify-center gap-2 hover:bg-accent/90 transition-all transform hover:-translate-y-1'>
+          class='bg-accent text-white text-shadow-header font-semibold py-3 px-6 rounded flex items-center justify-center gap-2 hover:bg-accent/90 transition-all transform hover:-translate-y-1'>
           <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'
             ><path
               d='M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z'
@@ -60,13 +60,18 @@
         <a
           id='add-to-calendar'
           href='#'
-          class='bg-white/20 text-white font-semibold py-3 px-6 rounded border border-white/40 flex items-center justify-center gap-2 hover:bg-white/30 transition-all transform hover:-translate-y-1'>
+          class='bg-lazaro-backgound/50 text-white text-shadow-header shadow-md font-semibold py-3 px-6 rounded border border-white/40 flex items-center justify-center gap-2 hover:bg-white/30 transition-all transform hover:-translate-y-1'>
           <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'
             ><path d='M8 2v4'></path><path d='M16 2v4'></path><rect width='18' height='18' x='3' y='4' rx='2'></rect><path d='M3 10h18'></path></svg
           >
           Agregar evento al calendario
         </a>
       </div>
+      <a
+        href='#registro'
+        class='text-lazaro mx-auto mt-10 font-bold text-xl py-3 px-6 rounded border-2 border-lazaro flex items-center justify-center gap-2 hover:bg-white/30 transition-all transform hover:-translate-y-1 w-fit'>
+        Registrarme - Recibir invitación al evento
+      </a>
     </div>
   </div>
 </section>
@@ -101,3 +106,9 @@ No te lo pierdas | Martes, 29 de abril; 2:00 PM | `,
     button.addEventListener('click', () => atcb_action(config, button))
   }
 </script>
+
+<style>
+  .text-shadow-header {
+    text-shadow: 1px 1px 2px rgb(29, 29, 29);
+  }
+</style>
